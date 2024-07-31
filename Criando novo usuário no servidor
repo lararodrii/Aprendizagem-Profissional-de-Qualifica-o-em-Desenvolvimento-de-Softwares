@@ -1,0 +1,27 @@
+/*Criando novo usuario no servidor*/
+create user 'lara.rodrigues'@'localholst' identified by '123456'; 
+create user 'izabella.oliveira'@'localholst' identified by '123456'; 
+create user 'luane.gabrielly'@'localholst' identified by '123456'; 
+create user 'tiago.lima'@'localholst' identified by '123456'; 
+create user 'daniel.gomes'@'localholst' identified by '123456'; 
+
+/*Aplicando permissão global de consulta a todos os arquivos/banco no servidor*/
+grant select
+on *.*
+to danielgomes@localholst;
+
+/*Aplicando permissão de banco inserção em todas as tabelas do banco*/
+grant insert
+on bd_caso_esdtudo_vendas.*
+to danielgomes@localholst;
+
+/*Aplicando permissão de banco de inserção em tabela definida*/
+grant insert
+on bd_caso_esdtudo_vendas.tb_prod
+to danielgomes@localholst;
+
+grant
+	select (cli_cod,cli_nome,cli_cpf),
+	update (cli_end_cep)
+on bd_caso_esdtudo_vendas.tb_cli
+to danielgomes@localholst;
