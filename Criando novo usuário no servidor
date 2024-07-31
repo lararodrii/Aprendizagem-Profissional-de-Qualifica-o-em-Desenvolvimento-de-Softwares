@@ -25,3 +25,28 @@ grant
 	update (cli_end_cep)
 on bd_caso_esdtudo_vendas.tb_cli
 to danielgomes@localholst;
+
+grant insert, update, delete
+on `bd_caso_estudo_vendas`.`tb_func`
+to danielgomes@localholst;
+
+revoke insert, update
+on bd_caso_estudo_vendas.tb_func
+from danielgomes@localholst;
+
+grant delete
+on `bd_caso_esdtudo_vendas`.`tb_func`
+to danielgomes@localholst;
+
+revoke select
+on `bd_caso_esdtudo_vendas`.`tb_func`
+from danielgomes@localholst;
+
+grant insert 
+on `bd_caso_esdtudo_vendas`.`tb_func`
+to danielgomes@localholst;
+
+
+
+
+
