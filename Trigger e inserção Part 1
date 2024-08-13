@@ -1,0 +1,26 @@
+/*Trabalhando com Transação e Integridade de Dados*/
+/*Iniciando a Transação*/
+start transaction;
+-- inserindo cliente a)
+insert into `bd_caso_estudo_vendas`.`tb_cli` (cli_cod,cli_nome,cli_cpf,cli_end_rua,cli_end_num,cli_end_bairro,cli_end_cep)
+values(100, 'Cliente Dois', '12112112199', 'Rua Teste', '199', 'Bairro Teste', '12109222');
+-- inserindo cliente b)
+insert into `bd_caso_estudo_vendas`.`tb_compra` (compra_cod, compra_cli_cod, compra_func_cod, compra_qtd_cod)
+values (25, 2, 1, 2);
+-- inserindo produtos c)
+insert into `bd_caso_estudo_vendas`.`tb_prod` (prod_cod,prod_forn_cod,prod_desc,prod_vlr)
+values (25, 1, 'QUATRO', 20);
+
+insert into `bd_caso_estudo_vendas`.`tb_prod` (prod_cod,prod_forn_cod,prod_desc,prod_vlr)
+values (25, 1, 'CINCO', 30);
+-- N na venda inserida d)
+-- Atualização da tabela produtos da venda, inserindo produtos associados a venda e)
+insert into `bd_caso_estudo_vendas`.`tb_prod_comp` (prod_cod,compra_cod)
+values (4, 2);
+insert into `bd_caso_estudo_vendas`.`tb_prod_comp` (prod_cod,compra_cod)
+values (4, 2);
+commit;
+
+/*Habilitar e Desabilitar*/
+set foreing_key_checks=0;
+
